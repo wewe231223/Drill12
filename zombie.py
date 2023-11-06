@@ -24,6 +24,7 @@ class Zombie:
     images = None
     hitcount = 0
 
+
     def load_images(self):
         if Zombie.images == None:
             Zombie.images = {}
@@ -55,7 +56,7 @@ class Zombie:
         else:
             Zombie.images['Walk'][int(self.frame)].draw(self.x, self.y, self.size, self.size)
 
-        draw_rectangle(*self.get_bb())
+       # draw_rectangle(*self.get_bb())
 
 
     def handle_event(self, event):
@@ -71,7 +72,7 @@ class Zombie:
             if self.hitcount == 0:
                 self.hitcount += 1
                 self.size = self.size / 2
-                self.y = self.y / 2
+                self.y = self.y - 50
             elif self.hitcount == 1:
                 game_world.remove_object(self)
 
