@@ -45,6 +45,7 @@ def init():
 
     # collision pair resist
     game_world.add_collision_pairs("boy:ball",boy,None)
+    game_world.add_collision_pairs("playerball:zombie",None,None)
 
 
     for ball in balls:
