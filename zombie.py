@@ -76,3 +76,5 @@ class Zombie:
             elif self.hitcount == 1:
                 game_world.remove_object(self)
 
+        if group == 'player:zombie':
+            game_framework.quit()
