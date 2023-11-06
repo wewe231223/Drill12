@@ -23,7 +23,8 @@ animation_names = ['Walk']
 class Zombie:
     images = None
     hitcount = 0
-
+    boxx = 50
+    boxy = 90
 
     def load_images(self):
         if Zombie.images == None:
@@ -56,14 +57,14 @@ class Zombie:
         else:
             Zombie.images['Walk'][int(self.frame)].draw(self.x, self.y, self.size, self.size)
 
-       # draw_rectangle(*self.get_bb())
+        draw_rectangle(*self.get_bb())
 
 
     def handle_event(self, event):
         pass
 
     def get_bb(self):
-        return self.x - 50,self.y -90 , self.x + 50, self.y + 70
+        return self.x - self.boxx,self.y -self.boxy , self.x + self.boxx, self.y + self.boxy
 
 
 
@@ -73,6 +74,8 @@ class Zombie:
                 self.hitcount += 1
                 self.size = self.size / 2
                 self.y = self.y - 50
+                self.boxy = self.boxy // 2
+                self.boxx = self.boxx // 2
             elif self.hitcount == 1:
                 game_world.remove_object(self)
 
