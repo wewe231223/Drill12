@@ -55,10 +55,14 @@ class Zombie:
         else:
             Zombie.images['Walk'][int(self.frame)].draw(self.x, self.y, self.size, self.size)
 
+        draw_rectangle(*self.get_bb())
 
 
     def handle_event(self, event):
         pass
+
+    def get_bb(self):
+        return self.x - 50,self.y -90 , self.x + 50, self.y + 70
 
 
 
